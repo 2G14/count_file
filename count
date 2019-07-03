@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for file in "$@"
+do
+	# check exist
+	if [ -a ${file} ]; then
+		# check dir
+		if [ -d ${file} ]; then
+			ls -U1 ${file} | wc -l
+		else
+			echo "${file} is not a directory"
+		fi
+	else
+		echo "no such file or directory"
+	fi
+done
